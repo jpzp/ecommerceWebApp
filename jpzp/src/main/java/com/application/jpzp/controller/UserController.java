@@ -1,11 +1,9 @@
 package com.application.jpzp.controller;
 
-
-
-import com.application.jpzp.exception.ResourceNotFoundException;
 import com.application.jpzp.model.User;
 import com.application.jpzp.service.UserService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +26,7 @@ import javax.validation.constraints.NotNull;
 @RequestMapping("/api/users")
 public class UserController {
 	
+	@Autowired
 	private UserService userService;
 	
 	public UserController(UserService userService) {

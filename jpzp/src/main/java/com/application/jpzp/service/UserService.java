@@ -1,6 +1,5 @@
 package com.application.jpzp.service;
 
-import com.application.jpzp.model.Order;
 import com.application.jpzp.model.User;
 import org.springframework.validation.annotation.Validated;
 
