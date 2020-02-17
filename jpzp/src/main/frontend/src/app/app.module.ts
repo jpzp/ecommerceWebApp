@@ -10,6 +10,7 @@ import { ProductsComponent } from './ecommerce/products/products.component';
 import { OrdersComponent } from './ecommerce/orders/orders.component';
 import { ShoppingCartComponent } from './ecommerce/shopping-carts/shopping-carts.component';
 import {EcommerceService} from "./ecommerce/services/EcommerceService";
+import { LoginComponent } from './ecommerce/login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {EcommerceService} from "./ecommerce/services/EcommerceService";
     EcommerceComponent,
     ProductsComponent,
     OrdersComponent,  
-    ShoppingCartComponent
+    ShoppingCartComponent, 
+	LoginComponent
   ],
   imports: [
 	BrowserModule,

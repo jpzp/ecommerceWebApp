@@ -1,6 +1,7 @@
 import {ProductOrder} from "../models/product-order.model";
 import {Subject} from "rxjs/internal/Subject";
 import {ProductOrders} from "../models/product-orders.model";
+import {User} from "../models/user.model";
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from "@angular/core";
 
@@ -8,6 +9,7 @@ import {Injectable} from "@angular/core";
 export class EcommerceService {
     private productsUrl = "/api/products";
     private ordersUrl = "/api/orders";
+	private userUrl = "/api/users";
 
     private productOrder: ProductOrder;
     private orders: ProductOrders = new ProductOrders();
