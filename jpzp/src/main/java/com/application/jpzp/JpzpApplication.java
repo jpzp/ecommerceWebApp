@@ -33,7 +33,7 @@ public class JpzpApplication {
 	@Bean
 	CommandLineRunner runner2(UserService userService) {
 		return args -> {
-            userService.save(new User(1L, "Juan", "Zambrano", "10/25/1995", "10358 NW 46 st", "Doral", "Fl", "3058771557"));
+            userService.save(new User(1L, "Juan", "Zambrano", "wasd12", "jpzp95@gmail.com"));
 		};
 	}
 	

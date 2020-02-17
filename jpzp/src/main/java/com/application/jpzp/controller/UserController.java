@@ -34,13 +34,13 @@ public class UserController {
     }
 
     @GetMapping(value = { "", "/" })
-    public @NotNull Iterable<User> getUsers() {
-        return userService.getAllUsers();
+    public @NotNull User findByEmail(String email) {
+        return userService.findByEmail(email);
     }
     
     @PostMapping
     public ResponseEntity<User> create(@RequestBody User user) {
-        user = this.userService.create(user);
+        user = this.userService.save(user);
 
         String uri = ServletUriComponentsBuilder
           .fromCurrentServletMapping()

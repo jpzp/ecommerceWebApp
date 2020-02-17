@@ -10,12 +10,10 @@ import javax.validation.constraints.NotNull;
 @Validated
 public interface UserService{
 
-    @NotNull Iterable<User> getAllUsers();
-
-    User getUser(@Min(value = 1L, message = "Invalid user ID.") long id);
+    User findByEmail(String email);
 
     User save(User user);
 	
-    User create(@NotNull(message = "The order cannot be null.") @Valid User user);
+    User findByConfirmationToken(String confirmationToken);
     
 }

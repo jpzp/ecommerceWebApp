@@ -7,40 +7,57 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import javax.validation.Valid;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name="user")
 public class User{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name= "id")
     private Long id;
 
+	@Column(name="first_name")
+	@NotEmpty(message = "Please provide your first name")
 	private String FName;
 
+	@Column(name = "last_name")
+	@NotEmpty(message = "Please provide your last name")	
 	private String LName;
 
-	private String DOB;
+	@Column(name="password")
+	private String password;
 
-	private String address;
+	@Column(name = "email", nullable = false, unique = true)
+	@Email(message = "Please provide a valid e-mail")
+	@NotEmpty(message = "Please provide an e-mail")
+	private String email;
+	
+	@Column(name = "enabled")
+	private boolean enabled;
 
-	private String city;
+	@Column(name = "confirmation_token")
+	private String confirmationToken;
 
-	private String state;
+	public String getConfirmationToken() {
+		return confirmationToken;
+	}
+	
+	public void setConfirmationToken(String confirmationToken) {
+		this.confirmationToken = confirmationToken;
+	}
 
-	private String phone;
-
-	public User(Long id, @NotNull(message = "First name is required") String FName, @NotNull(message = "Last name is required") String LName, String DOB, String address, String city, String state, String phone){
+	public User(Long id, String FName, String LName, String password, String email){
 		this.id = id;
 		this.FName = FName;
 		this.LName = LName;
-		this.DOB = DOB;
-		this.address = address;
-		this.city = city;
-		this.state = state;
-		this.phone = phone;
+		this.password = password;
+		this.email = email;
 	}
 
 	public User(){
@@ -70,44 +87,28 @@ public class User{
 		this.LName = name;
 	}
 
-	public String getDOB() {
-		return DOB;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setDOB(String DOB){
-		this.DOB = DOB;
+	public void setPassword(String password){
+		this.password = password;
 	}
 	
-	public String getAddress(){
-		return address;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setAddress(String addy){
-		this.address = addy;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city){
-		this.city = city;
+	public void setEmail(String email){
+		this.email = email;
 	}
 	
-	public String getState() {
-		return state;
+	public boolean getEnabled() {
+		return enabled;
 	}
 
-	public void setState(String state){
-		this.state = state;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone){
-		this.phone = phone;
+	public void setEnabled(boolean value) {
+		this.enabled = value;
 	}
 }
 

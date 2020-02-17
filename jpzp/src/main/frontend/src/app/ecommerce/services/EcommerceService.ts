@@ -9,7 +9,7 @@ import {Injectable} from "@angular/core";
 export class EcommerceService {
     private productsUrl = "/api/products";
     private ordersUrl = "/api/orders";
-	private userUrl = "/api/users";
+	private usersUrl = "/api/users";
 
     private productOrder: ProductOrder;
     private orders: ProductOrders = new ProductOrders();
@@ -26,6 +26,14 @@ export class EcommerceService {
 
     constructor(private http: HttpClient) {
     }
+	
+	getAllUsers() {
+		return this.http.get(this.usersUrl);
+	}
+	
+	register(user) {
+		return this.http.post(this.usersUrl, user);
+	}
 
     getAllProducts() {
         return this.http.get(this.productsUrl);
